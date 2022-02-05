@@ -6,8 +6,8 @@
   }
 .tooltip:hover:after{
 z-index: 99;
-left: 45%;
-top: -165%;
+left: 0%;
+top: -80px;
 background: #444;
 border-radius: 8px;
 color: #fff;
@@ -23,7 +23,8 @@ border: solid;
 border-color: #444 transparent;
 border-width: 12px 6px 0 6px;
 content: "";
-left: 50%;
+left: 30%;
+top: -8px;
 bottom: 30px;
 position: absolute;
 }

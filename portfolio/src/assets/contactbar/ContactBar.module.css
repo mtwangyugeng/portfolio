@@ -1,0 +1,29 @@
+
+.container {
+    width: fit-content;
+    height: 50px;
+    display:flex;
+}
+
+.linkedIn {
+    width: 55px;
+}
+
+.gitHub {
+    width: 50px;
+}
+
+.email {
+    width: 60px;
+}
+
+.icons{
+    height: 100%;
+    margin-right: 4vmin;
+    cursor:pointer;
+    opacity: 0.7;
+    transition: 0.7s;
+}
+.icons:hover{
+    opacity: 1;
+}
