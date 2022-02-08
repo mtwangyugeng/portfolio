@@ -1,5 +1,7 @@
 # Career timeline
 
+- TODO: what is the best accessbility approach for timeline?
+
 - Example usage: ```javescript
     <Timeline timeline={[
       {

@@ -28,7 +28,6 @@ const TimelineItem = ({date, text, link, tag}) => {
     return (
         <div className={styles.itemContainer}>
             <span className={styles.circle} />
-            <span className={styles.pole} />
             <div className={styles.item}>
                 <div className={styles.itemContent}>
                     <div className={styles.cardTop}>

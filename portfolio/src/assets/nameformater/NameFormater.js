@@ -7,7 +7,7 @@ export default class NameFormater extends PureComponent {
         this.pairs = this.props.pairs;
         this.englishName = this.props.englishName;
 
-        this.pairHTML = this.pairs.map((v,i) => <div key={i} hovered = {v[1]} className={styles.tooltip}>{v[0] + " "}</div>)
+        this.pairHTML = this.pairs.map((v,i) => <div key={i} hovered = {v[1]} className={styles.tooltip}><span className={styles.logogram}>{v[0]}</span>{" "}</div>)
     }
 
     render() {

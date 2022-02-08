@@ -13,6 +13,7 @@
     left: calc(50% - 2px);
     width: 4px;
     height: 100%;
+    border-radius: 10px;
 }
 
 
@@ -35,28 +36,29 @@
 }
 
 .item { 
-    margin: 10px;
-    margin-left: 50vw;
+    margin: 10px 0;
+    margin-left: min(50vw,480px);
     display: flex;
     background-color: white;
     /* height: 200px; */
     width: 37vw;
-    text-align: end;
+    max-width: 400px;
+    text-align: start;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .item::before {
     content: ' ';
     background-color: #fff;
-    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2); */
     transform: rotate(45deg);
     width: 20px;
     height: 20px;
     align-self: center;
 }
 .itemContainer:nth-child(even) .item{
-    margin-left: -50vw;
-    text-align: start;
+    margin-left: max(-50vw,-480px);
+    text-align: end;
 }
 .itemContainer:nth-child(even) .item::before{
     width: 0px;
@@ -65,7 +67,7 @@
 .itemContainer:nth-child(even) .item::after{
     content: ' ';
     background-color: rgb(255, 255, 255);
-    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2); */
     transform: rotate(45deg);
     width: 20px;
     height: 20px;
@@ -74,6 +76,7 @@
 
 .itemContent {
     padding: 15px;
+    width: 100%
 }
 
 .cardTop {
@@ -125,12 +128,13 @@
         justify-content: flex-start; 
     }
     .item { 
-        margin-left: 70px;
-        width: 330px;
+        margin-left: 60px;
+        margin-right: 10px;
+        width: 80%;
         text-align: start;
     }
     .itemContainer:nth-child(even) .item{
-        margin-left: 70px;
+        margin-left: 60px;
     }
     .main::after {
         left: calc(0% + 20px);
