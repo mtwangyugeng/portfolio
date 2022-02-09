@@ -1,12 +1,15 @@
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
+
 .main {
     width : 100%;
-    height: 5vh;
-    background-color: rgb(209, 206, 206);
+    height: 45px;
+    background-color: rgb(209, 206, 206, 0.3);
     margin: auto;
     display: flex;
-    flex-direction: row;
-    z-index: 1;
-    transition: opacity 1s;
+    flex-direction: column;
+    z-index: 99;
+    justify-content: center;
+    font-family: Share Tech Mono, monospace;
 }
 
 .sticky {
@@ -15,7 +18,6 @@
     /* left: 50%;
     transform: translateX(-50%); */
     top: 0;
-    opacity: 1;
     animation-name: NavigationBar-bounce;
     animation-duration: 0.5s;
   }
@@ -33,9 +35,65 @@
     padding-top: 5vmin;
   }
 
+  .progressBarContainer {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   .progressBar{
     width: 0%;
     height: 100%;
-    background-color: pink;
-    transition: 1.5s;
+    background-color: orange;
+    border-radius: 20px;
+    /* transition: 1.5s; */
+}
+
+
+.navContainer {
+  width : 100%;
+  height: 90%;
+  background-color: rgb(209, 206, 206);
+  display: flex;
+}
+
+.headerImg {
+  width: 40px;
+  margin: 0 0.5vw 0 0.5vw;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.navbarWrapper{
+  margin: auto 3vw auto auto;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navLink {
+  color: #000;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.projectCode{
+  color: orange;
+  opacity: 0;
+  transition: opacity 500ms;
+  font-weight: bold;
+}
+.navLink:hover .projectCode{
+  opacity: 1;
+}
+
+@media (max-width: 500px) {
+  .name{
+    display: none;
+  }
 }

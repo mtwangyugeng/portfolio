@@ -2,6 +2,7 @@
 .main {
     background: rgb(255,170,0);
     background: linear-gradient(0deg, rgba(255,170,0,1) 0%, rgba(253,102,0,1) 77%, rgba(251,0,0,1) 100%);
+    padding-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,6 +11,41 @@
 .contactMe{
     font-family: 'Lobster', cursive;
     font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.ContactContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90vw;
+    max-width: 900px;
+    /* background:#fff; */
+    margin-bottom: 40px;
+}
+
+.contact {
+    width: 300px;
+    margin: 7px;
+    font-size: 18px;
+    background: rgb(240, 184, 111);
+    color: rgb(58, 9, 68);
+    border-radius: 50px;
+    text-decoration: None;
+    position: relative;
+    left: 0vw;
+    transition: 500ms;
+    padding: 10px;
+
+    font-weight: bold;
+    text-align: center;
+}
+.contact:hover{
+    left: 2vw;
+    background: white;
+    color: red;
 }
 
 .DoubleUpArrows{
@@ -30,4 +66,10 @@
 .Footer{
     width: 100%;
     background: grey;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
 }

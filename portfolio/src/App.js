@@ -19,9 +19,13 @@ function App() {
       contacts = {<ContactBar linkedIn = "https://www.linkedin.com/in/yu-geng-simon-wang/" gitHub = "https://github.com/mtwangyugeng" email = "mtwangyugeng@gmail.com"/>}
      />
       
-     <NavBar />
+     <NavBar navLinks = {[
+       {name: 'About', id: '#About'},
+       {name: 'Résumé', id: '#Résumé'},
+       {name: 'Contact', id: '#contact'}
+     ]}/>
       
-     <ContentSection title={<SceneTitle title="About"/>} content={
+     <ContentSection id="About" title={<SceneTitle title="About"/>} content={
        <NameCard 
         name={<NameFormater pairs = {[["Yu", "🌌"], ["Geng", "🧑‍🌾"], ["Wang", "👑"]]} englishName = "Simon"/>}
         location="Scarborough, ON, CA"
@@ -38,7 +42,7 @@ function App() {
           </article>}
        />
      }/>
-     <ContentSection title={<SceneTitle title="Résumé"/>} content = {
+     <ContentSection id="Résumé" title={<SceneTitle title="Résumé"/>} content = {
       <Timeline timeline={[
         {
           date:new Date("1996-07-09"),
@@ -80,12 +84,19 @@ function App() {
       ]} />
       } />
 
-    <ContentSection title={<SceneTitle title="Projects"/>} content={
-      "what"
-    }/>
     <EndingSection 
       author="Yu Geng Wang"
       year="2022"
+      contacts = {[
+        {
+          text: "Connect with me on LinkedIn",
+          url: "https://www.linkedin.com/in/yu-geng-simon-wang/"
+        },
+        {
+          text: "Send me an e-mail",
+          url: "mailto:mtwangyugeng@gmail.com"
+        }
+      ]}
     />
     </div>
   );
