@@ -3,8 +3,8 @@ import {PureComponent, createRef} from 'react';
 import styles from "./NavBar.module.css"
 
 export default class NavBar extends PureComponent{
-    constructor(props) {
-        super(props);
+    constructor({navLinks}) {
+        super();
         this.state = {
             stick: "",
             appear: "appear",
@@ -13,7 +13,7 @@ export default class NavBar extends PureComponent{
         this.myRef = createRef();
         this.originalOffsetTop = null;
 
-        this.navLinks = this.props.navLinks.map((v,i)=>{
+        this.navLinks = navLinks.map((v,i)=>{
             return <a key={i} className={styles.navLink} href={v.id}><span className={styles.projectCode}>{'<'}</span>{v.name}<span className={styles.projectCode}>{'/>'}</span></a>
         })
     }

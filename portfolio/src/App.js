@@ -9,10 +9,13 @@ import ContentSection from './sections/contentsection/ContentSection';
 import NameCard from './assets/namecard/NameCard';
 import SceneTitle from './assets/scenetitle/SceneTitle';
 import EndingSection from './sections/endingsection/EndingSection';
+import IAccess from './assets/iaccess/IAccess';
 
 function App() {
   return (
+    <>    <IAccess />
     <div className="App">
+      
      <LandingSection 
       fullName = {<NameFormater pairs = {[["Yu", "🌌"], ["Geng", "🧑‍🌾"], ["Wang", "👑"]]} englishName = "Simon"/>}
       subTitle = {<StringAnimation strings = {["Full-Stack Developer" ,"Creative Designer"]}/>}
@@ -98,7 +101,10 @@ function App() {
         }
       ]}
     />
+
+  
     </div>
+    </>
   );
 }
 
