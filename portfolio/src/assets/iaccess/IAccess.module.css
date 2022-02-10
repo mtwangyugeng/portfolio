@@ -1,9 +1,8 @@
 @import url('https://fontlibrary.org//face/opendyslexic');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .main {
     z-index: 99;
+    user-select: none;
     cursor: pointer;
-
     position: fixed;
     bottom: 0;
     left: 0;
@@ -13,13 +12,25 @@
     height: 100px;
     background-color: white;
     border: 1px solid;
-    font-family: 'Lobster', cursive;
 
+    transition: 0.5s;
 }
 
-.box {
-    width: 100px;
-    height: 100px;
+.main:hover {
+    background: blue;
+}
+
+.options {
+    position: fixed;
+    z-index: 99;
+    bottom: 0px;
+    left: 120px;
+    margin: 10px;
+
+    height: 400px;
+    width: 40vw;
+    max-width: 400px;
+    background-color: blue;
 }
 
 .delexsiaFont {

@@ -81,20 +81,29 @@ export default class IAccess extends React.PureComponent {
             this.recurRmClass(child, cN);
         }
     }
-    
+
+    handleOpen = () => {
+        this.setState(prevState=>{
+            return {opened: !prevState.opened}
+        })
+    }
+
     render() {
         
         return (
             <>
             {this.state.ADHD ? <ADHDScreen /> : ''}
-            <div className = {styles.main}>
-                <div className = {styles.box}>
+            <div className = {styles.main} onClick={this.handleOpen}>
                 what
-                <div onClick={this.handleADHDChange}>ADHD</div>
-                <div onClick={this.handleEpilepsyChange}>epilepsy</div>
-                <div onClick={this.handleDelexsiaChange}>delexsia</div>
-                </div>
+                
             </div>
+            {this.state.opened &&
+                <div className = {styles.options}>
+                    <div onClick={this.handleADHDChange}>ADHD</div>
+                    <div onClick={this.handleEpilepsyChange}>epilepsy</div>
+                    <div onClick={this.handleDelexsiaChange}>delexsia</div>
+                </div>
+            }
             </>
         );
     }
