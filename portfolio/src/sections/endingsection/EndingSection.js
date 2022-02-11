@@ -37,7 +37,7 @@ const ContactSection = ({contacts}) => (
         <div className={styles.ContactContainer}>
         {contacts && 
             contacts.map((v,i) => {
-                return <a id={i} className={styles.contact} target="_blank" href={v.url} rel="noopener noreferrer">
+                return <a key={i} className={styles.contact} target="_blank" href={v.url} rel="noopener noreferrer">
                     {v.text}
                 </a>
             })

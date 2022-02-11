@@ -16,8 +16,13 @@
     transition: 0.5s;
 }
 
+.main:hover svg {
+    fill: white;
+    transition: 0.5s;
+}
+
 .main:hover {
-    background: blue;
+    background: rgb(1, 1, 116);
 }
 
 .options {
@@ -33,7 +38,7 @@
     background-color: blue;
 }
 
-.delexsiaFont {
+.dyslexiaFont {
     font-family: 'OpenDyslexicMonoRegular';
     font-weight: normal;
     font-style: normal; 
