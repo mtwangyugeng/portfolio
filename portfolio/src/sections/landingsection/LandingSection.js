@@ -23,7 +23,6 @@ export default class LandingSection extends PureComponent {
     }
 
     render() {
-        console.log(this.fullName);
         return (
             <header id = "test" className={styles.container}>
                 <div className={styles.main}>

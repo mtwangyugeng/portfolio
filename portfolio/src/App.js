@@ -30,17 +30,20 @@ function App() {
       
      <ContentSection id="About" title={<SceneTitle title="About"/>} content={
        <NameCard 
+        picURL = "https://avatars.githubusercontent.com/u/27591623?v=4"
         name={<NameFormater pairs = {[["Yu", "🌌"], ["Geng", "🧑‍🌾"], ["Wang", "👑"]]} englishName = "Simon"/>}
         location="Scarborough, ON, CA"
         about={<article>
           <p>
-            Bachelor major in computer science and mathematics. My other passions
-            include video games, front-end design,
-            nature sight-seeing, and social science.
+            A bachelor that majors in computer science and mathematics. 
+            I am aiming to become a full-stack developer.
           </p>
           <br/>
           <p>
-           I am aiming to become a fullstack developer.
+            I also like MOBA and sandbox video games,
+            nature sight-seeing, 
+            philosophy
+            and social science.
           </p>
           </article>}
        />
@@ -48,40 +51,40 @@ function App() {
      <ContentSection id="Résumé" title={<SceneTitle title="Résumé"/>} content = {
       <Timeline timeline={[
         {
-          date:new Date("1996-07-09"),
-          text:'Bob is born in Jacksville Florida. The best city of the USA.',
+          date:new Date("2020-12-31"),
+          text:'I made my first web-app ---- a music beatbox! Everything was sloppy... but hey there is a first time for everthing!',
           tag: {
-            title: 'twitter',
+            title: 'Project',
             color: '#1DA1F2'
           },
           link: {
-            url: '#!',
+            url: 'https://github.com/mtwangyugeng/hbeatbox',
             text: 'Check it out on GitHub'
           }
         },
           {
-            date:new Date("1996-07-09"),
-            text:'Bob is born in Jacksville Florida. The best city of the USA.',
+            date:new Date("2022-01-15"),
+            text:'With the help of the online communities, things in web-developement are no longer intimidating.',
             tag: {
-              title: 'Github',
-              color: 'red'
+              title: 'bootcamp',
+              color: 'blue'
             },
             link: {
-              url: '#!',
-              text: 'Check it out on GitHub'
+              url: 'https://www.freecodecamp.org/fcc12596072-1ec4-4ea7-95f2-9a3d396f55eb',
+              text: 'Check out my bootcamp certificates'
             }
           }
           ,
           {
-            date:new Date("1996-07-09"),
-            text:'Bob is born in Jacksville Florida. The best city of the USA.',
+            date:new Date("2022-02-11"),
+            text:'I used what I learned about react so far to make this website. Scalable and reuseable components!',
             tag: {
-              title: 'Github',
-              color: 'red'
+              title: 'Project',
+              color: '#1DA1F2'
             },
             link: {
               url: '#!',
-              text: 'Check it out on GitHub'
+              text: 'Check out the source code of this website on GitHub'
             }
           }
       ]} />

@@ -30,7 +30,6 @@ export default class StringAnimation extends PureComponent{
     }
 
     componentDidMount () {
-        console.log("mount")
         this.tick = setInterval(this.handletick, 125)
     }
     
