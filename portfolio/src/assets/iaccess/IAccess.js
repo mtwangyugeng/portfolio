@@ -54,9 +54,8 @@ export default class IAccess extends React.PureComponent {
             }
         ]
 
-        this.onMount = []
-
-        this.modules.forEach(v=>{
+        this.onMount = [];
+        this.modules.forEach((v,i)=>{
             this.defaultState[v.name] = false;
             this.onMount.push(
                 ()=>{
@@ -68,12 +67,10 @@ export default class IAccess extends React.PureComponent {
 
         this.moduleButtons = () => this.modules.map((v,i) =>{
             const name = v.name;
-            const component = v.component;
             const onActivate = v.onActivate;
             const onDeactivate = v.onDeactivate;
             return (
                 <button key={i} onClick={this.handleModuleChange(name, onActivate, onDeactivate)}>
-                    {this.state[name] && component}
                     <div>
                         {name}
                     </div>
@@ -81,6 +78,14 @@ export default class IAccess extends React.PureComponent {
                         {this.state[name]?"ON":"OFF"}
                     </div>
                 </button>
+            );
+        })
+
+        this.moduleComponents = () => this.modules.map((v,i) =>{
+            const name = v.name;
+            const component = v.component;
+            return (
+                <>{this.state[name] && component}</>
             );
         })
 
@@ -108,13 +113,6 @@ export default class IAccess extends React.PureComponent {
     }
 
     componentDidMount() {
-        // if(this.state.epilepsy){
-        //     document.querySelector(".App").style.filter = "saturate(50%)";
-        // }
-        // if(this.state.dyslexia) {
-        //     // document.querySelector("body").style.fontFamily = "OpenDyslexicMonoRegular";
-        //     this.recurAddClass(document.querySelector("body"), styles.dyslexiaFont);
-        // }
         this.onMount.forEach(v=>v());
     }
 
@@ -159,7 +157,7 @@ export default class IAccess extends React.PureComponent {
         
         return (
             <>
-            {this.state.ADHD ? <ADHDScreen /> : ''}
+            {this.moduleComponents()}
             <div className = {styles.main} onClick={this.handleOpen}>
                 {accessibilityIcon}
             </div>
