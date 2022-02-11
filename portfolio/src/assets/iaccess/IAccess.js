@@ -18,25 +18,107 @@ export default class IAccess extends React.PureComponent {
         super(props);
         this.defaultState = {
             opened: false,
-            
-            ADHD: false,
-            epilepsy: false,
-            dyslexia: false,
         }
-        this.state = JSON.parse(window.localStorage.getItem('IAccess')) || {...this.defaultState}
-        // this.state = {...this.defaultState}
+        
+        this.modules = [
+            {
+                name: "Focus Helper",
+                component: <ADHDScreen />,
+                onActivate: () => {
+                    return;
+                },
+                onDeactivate: () => {
+                    return;
+                }
+            },
+            {
+                name: "Lower Saturation",
+                component: <></>,
+                onActivate: () => {
+                    document.querySelector(".App").style.filter = "saturate(50%)";
+                },
+                onDeactivate: () => {
+                    document.querySelector(".App").style.filter = "none";
+                }
+            },
+            {
+                name: "Dyslexia-Friendly Text",
+                component: <></>,
+                onActivate: () => {
+                    this.recurAddClass(document.querySelector("body"), styles.dyslexiaFont);
+                    // document.querySelector("body").classList.add(styles.dyslexiaFont);
+                },
+                onDeactivate: () => {
+                    this.recurRmClass(document.querySelector("body"), styles.dyslexiaFont);
+                }
+            }
+        ]
+
+        this.onMount = []
+
+        this.modules.forEach(v=>{
+            this.defaultState[v.name] = false;
+            this.onMount.push(
+                ()=>{
+                    if(this.state[v.name])
+                        v.onActivate()
+                }
+            );
+        })
+
+        this.moduleButtons = () => this.modules.map((v,i) =>{
+            const name = v.name;
+            const component = v.component;
+            const onActivate = v.onActivate;
+            const onDeactivate = v.onDeactivate;
+            return (
+                <button key={i} onClick={this.handleModuleChange(name, onActivate, onDeactivate)}>
+                    {this.state[name] && component}
+                    <div>
+                        {name}
+                    </div>
+                    <div>
+                        {this.state[name]?"ON":"OFF"}
+                    </div>
+                </button>
+            );
+        })
+
+        const localSaved = JSON.parse(window.localStorage.getItem('IAccess'));
+        if(localSaved)
+            Object.assign (this.defaultState, localSaved );
+        this.state = {...this.defaultState}
+    }
+
+    handleModuleChange = (moduleName, onActivate, onDeactivate) => {
+        return (
+            () => {
+                this.setState(prevState=>{
+                    if(prevState[moduleName])
+                        onDeactivate();
+                    else
+                        onActivate();
+                    return {
+                        [moduleName]: !prevState[moduleName]
+                    };
+                });
+            }
+        );
+        
     }
 
     componentDidMount() {
-        if(this.state.epilepsy){
-            document.querySelector(".App").style.filter = "saturate(50%)";
-        }
-        if(this.state.dyslexia) {
-            // document.querySelector("body").style.fontFamily = "OpenDyslexicMonoRegular";
-            this.recurAddClass(document.querySelector("body"), styles.dyslexiaFont);
-        }
+        // if(this.state.epilepsy){
+        //     document.querySelector(".App").style.filter = "saturate(50%)";
+        // }
+        // if(this.state.dyslexia) {
+        //     // document.querySelector("body").style.fontFamily = "OpenDyslexicMonoRegular";
+        //     this.recurAddClass(document.querySelector("body"), styles.dyslexiaFont);
+        // }
+        this.onMount.forEach(v=>v());
     }
 
+    // let setState save states into localStorage
     setState(callback) {
         const neo = (prevState) => {
             const t = callback(prevState);
@@ -53,48 +135,6 @@ export default class IAccess extends React.PureComponent {
         this.setState(...this.defaultState)
     }
 
-    handleADHDChange = () => {
-        this.setState(prevState=>{
-            return {
-                ADHD: !prevState.ADHD
-            };
-        });
-    }
-
-    handleEpilepsyChange = () =>{
-        this.setState(prevState=>{
-            if(prevState.epilepsy) {
-                console.log('epilepsy');
-                document.querySelector(".App").style.filter = "none";
-            } else {
-                document.querySelector(".App").style.filter = "saturate(50%)";
-
-                return {
-                    ADHD: false,
-                    epilepsy: true
-                };
-            }
-
-            return {
-                epilepsy: !prevState.epilepsy
-            };
-        });
-    }
-
-    handledyslexiaChange = () => {
-        this.setState(prevState=>{
-            if(prevState.dyslexia) {
-                this.recurRmClass(document.querySelector("body"), styles.dyslexiaFont);
-            } else {
-                // document.querySelector("body").style.fontFamily = "OpenDyslexicMonoRegular";
-                this.recurAddClass(document.querySelector("body"), styles.dyslexiaFont);
-            }
-
-            return {
-                dyslexia: !prevState.dyslexia
-            };
-        });
-    }
 
     recurAddClass = (element, cN) => {
         element.classList.add(cN);
@@ -123,11 +163,10 @@ export default class IAccess extends React.PureComponent {
             <div className = {styles.main} onClick={this.handleOpen}>
                 {accessibilityIcon}
             </div>
-            {this.state.opened &&
+            {this.state.opened && 
                 <div className = {styles.options}>
-                    <div onClick={this.handleADHDChange}>ADHD</div>
-                    <div onClick={this.handleEpilepsyChange}>epilepsy</div>
-                    <div onClick={this.handledyslexiaChange}>dyslexia</div>
+                    <h2>Accessibility Add-on</h2>
+                    {this.moduleButtons()}
                 </div>
             }
             </>
