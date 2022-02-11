@@ -40,14 +40,13 @@
 
 .options {
     position: fixed;
-    z-index: 99;
+    z-index: 9999;
     bottom: 0px;
     left: 100px;
     margin: 10px;
 
     height: 400px;
-    width: 40vw;
-    max-width: 400px;
+    width:  400px;
     background-color: rgb(1, 1, 116);
     color: white;
     border-radius: 10px;
@@ -57,6 +56,14 @@
     align-items: center;
 
     overflow-y: auto;
+}
+@media (max-width:500px) {
+    .options {
+        height: calc(100% - 120px);
+        width:  95%;
+        left: 0px;
+        bottom: 100px;
+    }
 }
 
 .options > h2 {
