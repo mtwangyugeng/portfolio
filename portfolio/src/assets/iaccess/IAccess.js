@@ -64,6 +64,11 @@ export default class IAccess extends React.PureComponent {
                 }
             );
         })
+        //intital state
+        const localSaved = JSON.parse(window.localStorage.getItem('IAccess'));
+        if(localSaved)
+            Object.assign (this.defaultState, localSaved );
+        this.state = {...this.defaultState}
 
         this.moduleButtons = () => this.modules.map((v,i) =>{
             const name = v.name;
@@ -85,14 +90,10 @@ export default class IAccess extends React.PureComponent {
             const name = v.name;
             const component = v.component;
             return (
-                <>{this.state[name] && component}</>
+                <div key={i}>{this.state[name] && component}</div>
             );
         })
 
-        const localSaved = JSON.parse(window.localStorage.getItem('IAccess'));
-        if(localSaved)
-            Object.assign (this.defaultState, localSaved );
-        this.state = {...this.defaultState}
     }
 
     handleModuleChange = (moduleName, onActivate, onDeactivate) => {
