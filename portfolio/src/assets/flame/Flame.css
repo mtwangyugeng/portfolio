@@ -1,0 +1,8 @@
+#Flame-c {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    /* cursor: none; */
+    position: fixed;
+    z-index: -1;
+ }

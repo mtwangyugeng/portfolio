@@ -10,10 +10,11 @@ import NameCard from './assets/namecard/NameCard';
 import SceneTitle from './assets/scenetitle/SceneTitle';
 import EndingSection from './sections/endingsection/EndingSection';
 import IAccess from './assets/iaccess/IAccess';
+import Flame from './assets/flame/Flame';
 
 function App() {
   return (
-    <>    <IAccess />
+    <>    <IAccess /> <Flame />
     <div className="App">
       
      <LandingSection 
@@ -35,15 +36,16 @@ function App() {
         location="Scarborough, ON, CA"
         about={<article>
           <p>
-            A bachelor that majors in computer science and mathematics. 
-            I am aiming to become a full-stack developer.
+            Keen on working with: React.js, Express.js. I am great with javascript and CSS; I am also familiar with C, C#, java, and python.
+             I know a good deal about software architecture and algorithm design. 
           </p>
           <br/>
           <p>
-            I also like MOBA and sandbox video games,
-            nature sight-seeing, 
-            philosophy
-            and social science.
+            I am open to networking, criticism and insights. <b><i> I am also interested in nature of Ontario and social science. :-)</i></b>
+          </p>
+          <br/>
+          <p>
+            "This area is reserved for a cool quote that I might come up with in the future. : ^)"
           </p>
           </article>}
        />
