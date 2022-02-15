@@ -30,7 +30,7 @@ function App() {
       
      <ContentSection id="About" title={<SceneTitle title="About"/>} content={
        <NameCard 
-        picURL = "https://avatars.githubusercontent.com/u/27591623?v=4"
+        picURL = "https://media-exp1.licdn.com/dms/image/C4D35AQHfugfeLpf31Q/profile-framedphoto-shrink_400_400/0/1612897111197?e=1645030800&v=beta&t=J-rdLfmLCZaJ63Ow00JaQlHM0sygJp7QvjOimJ1QEZI"
         name={<NameFormater pairs = {[["Yu", "🌌"], ["Geng", "🧑‍🌾"], ["Wang", "👑"]]} englishName = "Simon"/>}
         location="Scarborough, ON, CA"
         about={<article>
