@@ -19,7 +19,10 @@ export default class NavBar extends PureComponent{
     }
 
     componentDidMount() {
-        this.originalOffsetTop = this.myRef.current.offsetTop;
+        
+        window.addEventListener('load', (event) => {
+            this.originalOffsetTop = this.myRef.current.offsetTop;
+          });
         window.addEventListener('resize', this.resizeHandler);
         window.addEventListener('scroll', this.stick_it);
         window.addEventListener('scroll', this.handlescroll);
@@ -27,6 +30,7 @@ export default class NavBar extends PureComponent{
     componentWillUnmount(){
         window.removeEventListener('resize', this.resizeHandler);
         window.removeEventListener('scroll', this.stick_it);
+        window.removeEventListener('scroll', this.handlescroll);
     }
 
     resizeHandler = () => {
