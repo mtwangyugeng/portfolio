@@ -12,6 +12,8 @@ import EndingSection from './sections/endingsection/EndingSection';
 import IAccess from './assets/iaccess/IAccess';
 import Flame from './assets/flame/Flame';
 
+import myPic from './my_pic.jpg'
+
 function App() {
   return (
     <>    <IAccess /> <Flame />
@@ -31,7 +33,7 @@ function App() {
       
      <ContentSection id="About" title={<SceneTitle title="About"/>} content={
        <NameCard 
-        picURL = "https://media-exp1.licdn.com/dms/image/C4D35AQHfugfeLpf31Q/profile-framedphoto-shrink_400_400/0/1612897111197?e=1645030800&v=beta&t=J-rdLfmLCZaJ63Ow00JaQlHM0sygJp7QvjOimJ1QEZI"
+        picURL = {myPic}
         name={<NameFormater pairs = {[["Yu", "🌌"], ["Geng", "🧑‍🌾"], ["Wang", "👑"]]} englishName = "Simon"/>}
         location="Scarborough, ON, CA"
         about={<article>
