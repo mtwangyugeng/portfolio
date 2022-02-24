@@ -87,7 +87,7 @@ function App() {
               color: '#1DA1F2'
             },
             link: {
-              url: '#!',
+              url: 'https://github.com/mtwangyugeng/portfolio',
               text: 'Check out the source code of this website on GitHub'
             }
           }
