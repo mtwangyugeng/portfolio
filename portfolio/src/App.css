@@ -1,2 +1,12 @@
-.App {
+
+
+.stackContainer {
+    max-width: 600px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+.stackContainer > * {
+    margin: 12px;
 }

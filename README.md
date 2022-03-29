@@ -1,5 +1,4 @@
 # Welcome to Simon's portfolio project
-## It only took 40 years
 
 - The project is to test the performance and reusability of the reactjs component I designed for webpages.
 
